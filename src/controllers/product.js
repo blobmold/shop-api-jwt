@@ -5,6 +5,7 @@ export const createProduct = async (req, res) => {
         const newProduct = await Product.create(req.body);
         return res.status(200).json({ message: `Product successfully created`, newProduct });
     } catch (error) {
+        if(error.code === 11000) return res.status(500).json({ message: `Duplicate Key Error`, error });
         return res.status(500).json({ message: `Couldn't create product`, error });
     }
 };
