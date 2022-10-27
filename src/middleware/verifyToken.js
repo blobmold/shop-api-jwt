@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 export const verifyToken = async (req, res, next) => {
     const { authorization } = req.headers;
 
-    if (!authorization) return res.status(401).json({ message: `Authentication failed` });
+    if (!authorization) return res.status(401).json({ message: `Authorization failed` });
 
     const token = authorization.split(" ")[1];
     jwt.verify(token, process.env.JWT_SK, (err, user) => {

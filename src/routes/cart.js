@@ -5,7 +5,7 @@ import { verifyTokenAndAdmin, verifyTokenAndAuthorization } from "../middleware/
 const router = Router();
 
 router.post('/', verifyTokenAndAuthorization, createCart);
-router.post('/:id', verifyTokenAndAuthorization, updateCart);
+router.put('/:id', verifyTokenAndAuthorization, updateCart);
 router.delete('/:id', verifyTokenAndAuthorization, deleteCart);
 router.get("/:userId", verifyTokenAndAuthorization, getCart);
 router.get('/', verifyTokenAndAdmin, getCart)
